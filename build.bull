@@ -1,6 +1,6 @@
 ; NEEDED ----------------------------------------------------------------------
-[build]
-name="bullsys"
+; Project header (and name)
+[bullsys]
 
 ; NEEDED ----------------------------------------------------------------------
 ; Defines the build profiles, `bull` to build the default profile, 
@@ -10,7 +10,7 @@ compiler="gcc"  ; needed
 flags="-Wall -Wextra -std=c99 -pedantic -O -D_POSIX_C_SOURCE=200809L"   ; optional (will append to command)
 include="iniparser" ; optional (will only create -l flag if used)
 source="src/"   ; needed
-output="bin/"   ; needed (will grab the name from build section)
+output="bin/bullsys"    ; needed (will grab the name from build section)
 ; This compiles to:
 ; gcc      -Wall -Wextra -std=c99 -pedantic -O -D_POSIX_C_SOURCE=200809L -liniparser src/*.c -o bin/bullsys
 ; ═══      ═════════════════════════════════════════════════════════════ ═══════════ ═══════ ══════════════
