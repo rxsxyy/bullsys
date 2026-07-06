@@ -1,0 +1,37 @@
+; NEEDED ----------------------------------------------------------------------
+; Defines the name of the project being built, it should also be the name of
+; the executable.
+[bullsys]
+
+; NEEDED ----------------------------------------------------------------------
+; Defines the build profiles, `bull` to build the default profile, 
+; `bull release` to build the release profile.
+[profile]
+compiler="gcc"                                                                      ; needed
+flags="-Wall -Wextra -std=c99 -pedantic -O -D_POSIX_C_SOURCE=200809L -liniparser"   ; optional
+source="src/"                                                                       ; needed
+include="lib/"                                                                      ; optional
+output="bin/"                                                                       ; needed 
+
+; The next flags are completely optional, they are declared manually and are
+; not needed for the program to function, `bull <option>` to run any that are
+; declared.
+
+; OPTIONAl --------------------------------------------------------------------
+; Defines the run option, `bull run` to build and run the default profile,
+; `bull release run` to build and run the release profile.
+[run]
+cmd="$(output)/bull"
+[run.release]
+cmd="$(output)/bull"
+; These are probably not correct, will correct them another time
+
+; OPTIONAL --------------------------------------------------------------------
+; Defines the clean option, `bull clean` to remove the output directory
+[clean]
+cmd="rm -rf $(output)"
+; This works, surprisingly
+
+[hello]
+cmd="echo hello"
+; This doesn't, obviously
