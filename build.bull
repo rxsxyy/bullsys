@@ -1,12 +1,6 @@
 [bullsys]
 [profile]
-command="echo building default profile..."
-compiler="gcc"
-include="iniparser"
-source="src/"
-output="bin/bullsys"
-[profile:release]
-command="echo building release profile..."
+command="echo building release profile... && mkdir bin"
 compiler="gcc"
 flags="-Wall -Wextra -std=c99 -pedantic -O2 -D_POSIX_C_SOURCE=200809L"
 include="iniparser"
@@ -14,5 +8,3 @@ source="src/"
 output="bin/bullsys"
 [clean]
 command="rm -rf bin/"
-[run]
-command="bin/bullsys"
