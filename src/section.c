@@ -108,8 +108,19 @@ static char *assemble_build_command(const Section *s) {
     }
 
     if (s->include) {
-        strcat(cmd, " -l");
-        strcat(cmd, s->include);
+        char *inc_copy = strdup(s->include);
+        if (!inc_copy) {
+            free(cmd);
+            return NULL;
+        }
+
+        char *lib = strtok(inc_copy, " ");
+        while (lib) {
+            strcat(cmd, " -l");
+            strcat(cmd, lib);
+            lib = strtok(NULL, " ");
+        }
+        free(inc_copy);
     }
 
     strcat(cmd, " ");
